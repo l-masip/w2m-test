@@ -6,16 +6,19 @@ import { provideClientHydration } from '@angular/platform-browser';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { loaderInterceptor } from './interceptors/loader.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
     // provideHttpClient(withFetch()),
-    provideHttpClient(), // Without fetch or InMemory will not work
+    provideHttpClient(
+      withInterceptors([loaderInterceptor])
+    ), // Without fetch or InMemory will not work
     importProvidersFrom(
       HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-        delay: 1500,
+        delay: 500,
         // apiBase: 'api',
         dataEncapsulation: false,
         passThruUnknownUrl: true,

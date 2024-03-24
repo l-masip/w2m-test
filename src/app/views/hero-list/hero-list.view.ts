@@ -13,7 +13,7 @@ import { LoaderComponent } from '../../components/loader/loader.component';
 @Component({
   selector: 'app-hero-list',
   standalone: true,
-  imports: [HeroesComponent, CommonModule, HttpClientInMemoryWebApiModule, LoaderComponent],
+  imports: [HeroesComponent, CommonModule, HttpClientInMemoryWebApiModule],
   templateUrl: './hero-list.view.html',
   styleUrl: './hero-list.view.scss'
 })
