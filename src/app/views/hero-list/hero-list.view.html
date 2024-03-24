@@ -1,6 +1,3 @@
-@if (heroes$ | async; as heroes) {
-  <app-heroes
-    *ngFor="let hero of heroes ; trackBy: trackHero"
-    [hero]="hero"
-  ></app-heroes>
+@for (hero of heroes$ | async; track trackHero) {
+<app-heroes [hero]="hero"></app-heroes>
 }
