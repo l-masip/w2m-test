@@ -4,15 +4,16 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-hero-editor',
   standalone: true,
-  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule],
+  imports: [CommonModule, MatFormFieldModule, MatInputModule, MatSelectModule, ReactiveFormsModule, MatButtonModule],
   templateUrl: './hero-editor.view.html',
   styleUrl: './hero-editor.view.scss',
 })
-export class HeroEditorComponent implements OnInit {
+export class HeroEditorView implements OnInit {
   public heroForm!: FormGroup;
 
   constructor(private fb: FormBuilder) {}

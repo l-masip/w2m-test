@@ -1,4 +1,4 @@
-<form [formGroup]="heroForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-editor">
   <mat-form-field>
     <mat-label>Name</mat-label>
     <input matInput formControlName="name" required>
@@ -19,10 +19,11 @@
   
   <mat-form-field>
     <mat-label>Wears cape?</mat-label>
-    <mat-select>
+    <mat-select formControlName="cape" required>
       <mat-option value="one">Yes</mat-option>
       <mat-option value="two">No</mat-option>
     </mat-select>
+    <mat-error *ngIf="heroForm.get('cape')?.hasError('required')">Cape is required</mat-error>
   </mat-form-field>
 
   <button mat-raised-button color="primary" type="submit">Submit</button>

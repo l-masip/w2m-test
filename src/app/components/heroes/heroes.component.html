@@ -1,3 +1,18 @@
-<h2>{{hero.name | uppercase}}</h2>
-<div><p>Rank: </p>{{hero.rank}}</div>
-<div><p>Name: </p>{{hero.name}}</div>
+<mat-card class="hero-card">
+    <mat-card-header>
+        <mat-card-title>
+            {{hero.name | uppercase}}
+        </mat-card-title>
+        <mat-card-subtitle>Rank: {{hero.rank}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+          Superpower: {{hero.superpower}} <br>
+          Wears a cape? {{ hero.cape ? 'Yes' : 'No' }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-icon-button aria-label="Edit Hero"><mat-icon fontIcon="edit_square"></mat-icon></button>
+        <button mat-icon-button aria-label="Delete Hero"><mat-icon fontIcon="delete"></mat-icon></button>
+      </mat-card-actions>
+</mat-card>
