@@ -1,15 +1,24 @@
 .hero-editor {
   display: flex;
   flex-direction: column;
-margin: 3rem;
+  margin: 3rem;
+
   mat-form-field {
     max-width: 25rem;
     margin-bottom: 1rem;
-
   }
   button {
     max-width: 12rem;
     height: 3rem;
     border-radius: 1.5rem;
-}
+  }
+  .hero-editor__name-field {
+    input {
+      text-transform: uppercase;
+    }
+  }
+
+  .editor__back-button {
+    margin-bottom: 2rem;
+  }
 }

@@ -1,5 +1,11 @@
 <form [formGroup]="heroForm" (ngSubmit)="onSubmit()" class="hero-editor">
-  <mat-form-field>
+
+  <button mat-fab extended color="primary" [routerLink]="'/heroes'" class="editor__back-button">
+    <mat-icon>arrow_back</mat-icon>
+    Go back
+  </button>
+
+  <mat-form-field class="hero-editor__name-field">
     <mat-label>Name</mat-label>
     <input matInput formControlName="name" required>
     <mat-error *ngIf="heroForm.get('name')?.hasError('required')">Name is required</mat-error>

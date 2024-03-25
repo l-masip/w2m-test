@@ -6,6 +6,10 @@
   mat-form-field {
     width: 32rem;
     margin: 0 1rem;
+    input {
+      text-transform: capitalize;
+    }
+
   }
 }
 

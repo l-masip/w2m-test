@@ -82,7 +82,7 @@ export class HeroService {
       console.error(error); // log to console instead
       console.error(`${operation} failed: ${error.message}`);
 
-        this.snackBar.open(error.message,'close');
+        this.snackBar.open(error.message,'Close');
 
       return of(result as T);
     };

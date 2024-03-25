@@ -83,7 +83,7 @@ export class HeroListView implements OnInit, AfterViewInit {
   onDelete(hero: Hero): void {
     this.heroService.deleteHero(hero.id).subscribe(() => {
       // Force refresh hero list
-      this.snackBar.open('Hero deleted successfully','close');
+      this.snackBar.open('Hero deleted successfully','Close');
       this.searchText$.next(this.searchText$.value);
     });
   }
