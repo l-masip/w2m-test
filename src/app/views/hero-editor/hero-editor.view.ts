@@ -60,7 +60,6 @@ export class HeroEditorView implements OnInit {
 
   onSubmit() {
     if (this.heroForm.valid) {
-      // Process form submission here
       if (this.heroForm.controls['id'].value) {
         this.heroService.updateHero(this.heroForm.value).subscribe(() => {
           this.snackBar.open('Hero updated successfully', 'Close');
@@ -73,7 +72,6 @@ export class HeroEditorView implements OnInit {
         });
       }
     } else {
-      // Mark all form fields as touched to display validation errors
       this.heroForm.markAllAsTouched();
     }
   }
