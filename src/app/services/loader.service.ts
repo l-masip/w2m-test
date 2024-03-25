@@ -15,7 +15,7 @@ export class LoaderService {
   }
 
   decrease(): void {
-    this.countLoaders--
+    this.countLoaders--;
     this.isLoading$.next(this.countLoaders > 0);
   }
 }

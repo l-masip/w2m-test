@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Hero } from '../hero';
-import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -82,7 +82,7 @@ export class HeroService {
       console.error(error); // log to console instead
       console.error(`${operation} failed: ${error.message}`);
 
-        this.snackBar.open(error.message,'Close');
+      this.snackBar.open(error.message, 'Close');
 
       return of(result as T);
     };

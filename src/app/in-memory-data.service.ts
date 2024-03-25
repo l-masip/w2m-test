@@ -16,12 +16,14 @@ export class InMemoryDataService implements InMemoryDbService {
       { id: 17, name: 'Dynama', rank: 17, superpower: 'Energy generation' },
       { id: 18, name: 'Dr. IQ', rank: 18, superpower: 'Superintelligence' },
       { id: 19, name: 'Magma', rank: 19, superpower: 'Magma creation' },
-      { id: 20, name: 'Tornado', rank: 20, superpower: 'Tornado creation' }
+      { id: 20, name: 'Tornado', rank: 20, superpower: 'Tornado creation' },
     ];
-    return {heroes};
+    return { heroes };
   }
 
   genId(heroes: Hero[]): number {
-    return heroes.length > 0 ? Math.max(...heroes.map(hero => hero.id)) + 1 : 11;
+    return heroes.length > 0
+      ? Math.max(...heroes.map((hero) => hero.id)) + 1
+      : 11;
   }
 }

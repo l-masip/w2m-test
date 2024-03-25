@@ -1,29 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BehaviorSubject } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import {
   debounceTime,
   distinctUntilChanged,
-  filter,
   map,
-  skip,
-  startWith,
   switchMap,
-  take,
-  tap,
+  tap
 } from 'rxjs/operators';
 import { HeroesComponent } from '../../components/heroes/heroes.component';
 import { Hero } from '../../hero';
 import { HeroService } from '../../services/hero.service';
-import { BehaviorSubject } from 'rxjs';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder, FormControl, ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-hero-list',
@@ -52,7 +48,7 @@ export class HeroListView implements OnInit, AfterViewInit {
     private heroService: HeroService,
     private fb: FormBuilder,
     private router: Router,
-    private snackBar: MatSnackBar,
+    private snackBar: MatSnackBar
   ) {}
 
   public trackHero(index: number, hero: Hero): number {
@@ -83,7 +79,7 @@ export class HeroListView implements OnInit, AfterViewInit {
   onDelete(hero: Hero): void {
     this.heroService.deleteHero(hero.id).subscribe(() => {
       // Force refresh hero list
-      this.snackBar.open('Hero deleted successfully','Close');
+      this.snackBar.open('Hero deleted successfully', 'Close');
       this.searchText$.next(this.searchText$.value);
     });
   }

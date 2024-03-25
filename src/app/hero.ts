@@ -1,6 +1,6 @@
 export interface Hero {
-    id: number;
-    rank: number;
-    name: string;
-    superpower: string;
+  id: number;
+  rank: number;
+  name: string;
+  superpower: string;
 }

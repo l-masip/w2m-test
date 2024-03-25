@@ -33,7 +33,7 @@ export class HeroesComponent {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { name: this.hero.name },
     });
-    
+
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         this.onDelete.next(this.hero);
