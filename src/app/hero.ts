@@ -3,5 +3,4 @@ export interface Hero {
     rank: number;
     name: string;
     superpower: string;
-    cape: boolean;
 }

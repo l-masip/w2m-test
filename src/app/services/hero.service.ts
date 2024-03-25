@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Hero } from '../hero';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root',
@@ -14,13 +15,12 @@ export class HeroService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {}
 
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl).pipe(
       tap((_) => console.log('fetched heroes')),
-      catchError(() => of([]))
-      // catchError(this.handleError<Hero[]>('getHeroes', []))
+      catchError(this.handleError<Hero[]>('getHeroes', []))
     );
   }
 
@@ -81,6 +81,9 @@ export class HeroService {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
       console.error(`${operation} failed: ${error.message}`);
+
+        this.snackBar.open(error.message,'close');
+
       return of(result as T);
     };
   }

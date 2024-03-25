@@ -2,15 +2,18 @@
   <mat-form-field>
     <mat-icon matPrefix fontIcon="search"></mat-icon>
     <mat-label>Search for a hero</mat-label>
-    <input matInput (input)="search('')" />
+    <input matInput [formControl]="searchFormControl" />
   </mat-form-field>
-  <button mat-fab extended color="primary" aria-label="Add Hero">
+  <button mat-fab extended color="primary" aria-label="Add Hero" (click)="onCreate()">
     <mat-icon fontIcon="add_circle"></mat-icon>
     Add a new hero
   </button>
 </div>
 <div class="hero-list">
   @for (hero of heroes$ | async; track trackHero) {
-  <app-heroes [hero]="hero"></app-heroes>
+  <app-heroes [hero]="hero"
+    (onEdit)="onEdit($event)" 
+    (onDelete)="onDelete($event)"
+  ></app-heroes>
   }
 </div>

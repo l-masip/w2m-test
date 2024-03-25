@@ -17,14 +17,5 @@
     <mat-error *ngIf="heroForm.get('rank')?.hasError('required')">Rank is required</mat-error>
   </mat-form-field>
   
-  <mat-form-field>
-    <mat-label>Wears cape?</mat-label>
-    <mat-select formControlName="cape" required>
-      <mat-option value="one">Yes</mat-option>
-      <mat-option value="two">No</mat-option>
-    </mat-select>
-    <mat-error *ngIf="heroForm.get('cape')?.hasError('required')">Cape is required</mat-error>
-  </mat-form-field>
-
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>
